@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="teks_tidak_dapat_tehubung_ke_server">Gagal terhubung ke server</string>
+    <string name="teks_terjadi_kesalahan_code_400">Terjadi kesalahan, 400</string>
+    <string name="teks_terjadi_kesalahan_code_500">Terjadi kesalahan, 500</string>
+    <string name="teks_anda_tidak_memiliki_token">Anda tidak memiliki token untuk menggunakan fungsi ini</string>
+</resources>
