@@ -1,6 +1,7 @@
 # wagos
 
 [![](https://jitpack.io/v/ramcona/wagos.svg)](https://jitpack.io/#ramcona/wagos)
+
 Library dibuat untuk autentifikasi whatsapp di buat  tim CAN Creative.
 hanya mendukung untuk android 21+.
 
