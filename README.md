@@ -34,4 +34,4 @@ Rebuild
 untuk menggunkan librarynya bisa di lihat di 
 MainActivity.kt | [MainActivity.kt][MainActivity] 
 
-[MainActivity]: <https://github.com/ramcona/wagos/blob/69f4367c22c84153994367c35e765ddf1c12d322/app/src/main/java/com/can/wagos/MainActivity.kt>
+[MainActivity]: <https://github.com/ramcona/wagos/blob/c18b3cf7077fd4f748f186fefd3e5b1044f7578f/app/src/main/java/com/can/wagos/MainActivity.kt>
