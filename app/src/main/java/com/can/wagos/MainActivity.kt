@@ -1,20 +1,28 @@
 package com.can.wagos
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.can.wagolib.WagoCheckPhone
 import com.can.wagolib.WagoVerification
 import com.can.wagolib.callback.WagoCallback
+import com.can.wagolib.callback.WagoCheckValidPhoneCallback
 import com.can.wagolib.network.response.WagooResponse
 import com.google.android.material.button.MaterialButton
 
 /**
- * 1. implement @constructor WagoCallback
+ * 1. implement WagoCallback for verification callback and
+ * WagoCheckValidPhoneCallback for check valid number
  * MAKE SURE you was add network permission at manifest*/
-class MainActivity : AppCompatActivity(), WagoCallback {
+class MainActivity : AppCompatActivity(), WagoCallback, WagoCheckValidPhoneCallback {
 
+    /*member untuk verifikasi*/
     private lateinit var verification: WagoVerification
+
+    /*member untuk check nomor terdaftar / tidak di wa  */
+    private lateinit var checkValidPhone: WagoCheckPhone
     private var requestToken:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,13 +30,16 @@ class MainActivity : AppCompatActivity(), WagoCallback {
         setContentView(R.layout.activity_main)
 
         /**
-         * 2. present WagoVerificaiton class */
+         * 2. present WagoVerificaiton class and WagoCheckPhone
+         * */
         verification = WagoVerification(this, this)
+        checkValidPhone = WagoCheckPhone(this, this)
+
 
         /**
          * 3. add app token to library
          * you just 1 time to add this token, on splash, login or where but you must not call evrytime*/
-        verification.setTokenApp("xxxxxxxx")
+        verification.setTokenApp("c4wo84cwwcc4w0kcs0ww88kcco80cc404w0g884c")
 
         /*checking alredy token*/
         print(verification.myAppToken())
@@ -41,6 +52,16 @@ class MainActivity : AppCompatActivity(), WagoCallback {
     }
 
     private fun action(){
+
+        findViewById<MaterialButton>(R.id.btnCheckValidNumber).setOnClickListener {
+            val number = findViewById<EditText>(R.id.edt_phone).text.toString()
+
+            /**
+             * œ. check phone valid / not at whatsapp
+             * @param phone must without + */
+            checkValidPhone.check(phone = number)
+        }
+
         findViewById<MaterialButton>(R.id.btnRequest).setOnClickListener {
             val number = findViewById<EditText>(R.id.edt_phone).text.toString()
 
@@ -79,6 +100,19 @@ class MainActivity : AppCompatActivity(), WagoCallback {
 
     override fun onError(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun resultValidNumberCheck(response: WagooResponse) {
+        /**
+         * result for number valid check
+         * @param response.code 1 = number ready on whatsapp
+         * @param response.code 0 = number already at whatsapp*/
+
+        if (response.code == 0){
+            Toast.makeText(this, "nomor tidak tersedia di whatsapp", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "nomor tersedia di whatsaapp", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onSuccessVerification(response: WagooResponse) {

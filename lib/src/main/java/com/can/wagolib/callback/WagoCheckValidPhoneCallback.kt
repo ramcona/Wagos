@@ -4,14 +4,8 @@ import com.can.wagolib.network.response.WagooResponse
 
 interface WagoCheckValidPhoneCallback {
 
-    fun onLoading(loading:Boolean){
-
-    }
-    fun onError(msg:String){
-
-    }
-    fun onSuccess(response:WagooResponse){
-
-    }
+    fun onLoading(loading:Boolean)
+    fun onError(msg:String)
+    fun resultValidNumberCheck(response:WagooResponse)
 
 }

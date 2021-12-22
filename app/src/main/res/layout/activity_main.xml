@@ -16,10 +16,18 @@
         android:layout_height="wrap_content"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCheckValidNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Check Valid Number WA"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="20dp"
         android:id="@+id/btnRequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Request OTP"/>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnResend"

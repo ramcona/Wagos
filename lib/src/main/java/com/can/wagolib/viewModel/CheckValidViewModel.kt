@@ -21,11 +21,7 @@ class CheckValidViewModel(var context: Context, var callback: WagoCheckValidPhon
             .doOnTerminate { callback.onLoading(false) }
             .subscribe(
                 { result ->
-                    if (!result.error){
-                        callback.onSuccess(result)
-                    }else{
-                        callback.onError(result.message)
-                    }
+                    callback.resultValidNumberCheck(result)
                 },
                 { error ->
                     try{

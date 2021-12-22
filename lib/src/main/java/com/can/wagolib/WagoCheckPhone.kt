@@ -12,7 +12,7 @@ class WagoCheckPhone(val context: Context, private val callbackCheckPhone:WagoCh
     private var apptoken = pref.token
 
 
-    fun checkPhone(phone:String){
+    fun check(phone:String){
         if (apptoken.isEmpty()){
             callbackCheckPhone.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
         }else{
