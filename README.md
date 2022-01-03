@@ -142,8 +142,7 @@ checkValidPhone.check(phone = 62892362328323)
 
 Setelah melakukan permintaan check nomor telepon apakah tersedia di whatsapp method / void `resultValidNumberCheck()` terpangil.
 ``response.data.code`` : 1  = nomor tersedia / terdaftar di whatsapp 
-````
-````
+\
 ``response.data.code`` : 0  = nomor tidak terdaftar di whatsapp
 
 Bila terjadi kendala ketika melakukan permintaan check nomor whatsapp method / void `onError` akan terpanggil
