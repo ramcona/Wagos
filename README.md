@@ -11,6 +11,10 @@ hanya mendukung untuk android 21+.
 - Verifikasi otp code
 - verifikasi nomor terdaftar di aplikasi
 
+## Perangkat
+- OS     : Android
+- Min OS : 21 (Lolipop)
+
 ## Installation
  tambahkan maven jitpack pada build.gadle
 ```
@@ -34,7 +38,9 @@ Rebuild
 untuk menggunkan librarynya bisa di lihat di 
 MainActivity.kt | [MainActivity.kt][MainActivity] 
 
-[MainActivity]: <https://github.com/ramcona/wagos/blob/c18b3cf7077fd4f748f186fefd3e5b1044f7578f/app/src/main/java/com/can/wagos/MainActivity.kt>
+[MainActivity]: <https://github.com/ramcona/wagos/blob/840ac097b286753b00df25ff4702e9515d38b498/app/src/main/java/com/can/wagos/MainActivity.kt>
+
+
 
 
 ## A. Penggunaan untuk Verifikasi
@@ -42,10 +48,12 @@ MainActivity.kt | [MainActivity.kt][MainActivity]
 1. Tambahkan ``WagoCallback`` sebagai callback implement
 
 contoh : 
-``class MainActivity : AppCompatActivity(), WagoCallback {
-}``
+````
+class MainActivity : AppCompatActivity(), WagoCallback {
+}
+````
 
-Kemudian panggil `class` `WagoVerification` untuk melakukan verifikasi
+Kemudian tambahkan `class` `WagoVerification` untuk melakukan verifikasi sebagai varibel global
 
 contoh : 
 ````
@@ -53,7 +61,7 @@ contoh :
     private lateinit var verification: WagoVerification
 ````
 
-2. perkenalkan variabel ``WagoVerification`` di dalam method/void ``onCreate``
+2. Perkenalkan variabel ``WagoVerification`` di dalam method/void ``onCreate``
 
 contoh:
 ````
@@ -102,3 +110,44 @@ Bila gagal melakukan permintaan member/void ``onError(msg:String)`` akan terpang
 
 verification.verification(token = requestToken, otpCode = otpCode)
 ````
+
+
+
+## A. Penggunaan untuk mengecek nomor tersedia di Whatsapp atau tidak
+
+1. implement `class` `WagoCheckValidPhoneCallback` dan daftarkan member-member nya.
+
+````
+class MainActivity : AppCompatActivity(), WagoCheckValidPhoneCallback {
+}
+````
+
+2. Kemudian tambahkan `class` `WagoCheckPhone` untuk melakukan verifikasi sebagai varibel global
+
+3. Perkenalkan variabel ``WagoCheckPhone`` di dalam method/void ``onCreate``
+
+contoh : 
+````
+checkValidPhone = WagoCheckPhone(this, this)
+````
+
+4. Kemudian langsung saja panggil method / void `check()` pada class `WagoCheckPhone`
+catatan : varabel `phone` harus di isi dengan diawali kode negara dan tanpa simbol (+)
+
+contoh : 62892362328323
+
+````
+checkValidPhone.check(phone = 62892362328323)
+````
+
+Setelah melakukan permintaan check nomor telepon apakah tersedia di whatsapp method / void `resultValidNumberCheck()` terpangil.
+`response.data.code` : 1  = nomor tersedia / terdaftar di whatsapp
+`response.data.code` : 0  = nomor tidak terdaftar di whatsapp
+
+Bila terjadi kendala ketika melakukan permintaan check nomor whatsapp method / void `onError` akan terpanggil
+
+
+untuk penggunaan lengkapnya bisa di lihat di
+MainActivity.kt | [MainActivity.kt][MainActivity]
+
+[MainActivity]: <https://github.com/ramcona/wagos/blob/840ac097b286753b00df25ff4702e9515d38b498/app/src/main/java/com/can/wagos/MainActivity.kt>
