@@ -41,10 +41,7 @@ Selanjutnya tambahkan ijin untuk menggunakan internet di Manifests.xml
 ````
 
 untuk menggunkan librarynya bisa di lihat di 
-MainActivity.kt | [MainActivity.kt][MainActivity] 
-
-[MainActivity]: <https://github.com/ramcona/wagos/blob/840ac097b286753b00df25ff4702e9515d38b498/app/src/main/java/com/can/wagos/MainActivity.kt>
-
+MainActivity.kt | [MainActivity.kt][MainActivity]
 
 
 ## A. Penggunaan untuk Verifikasi
