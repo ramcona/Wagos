@@ -20,26 +20,47 @@ class WagoVerification(private val context: Context, private val wagoCallback: W
     }
 
     fun requestOTP(phone:String){
-        if (apptoken.isEmpty()){
-            wagoCallback.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
-        }else{
-            viewModel.requestOTP(phone, apptoken)
+        when {
+            apptoken.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
+            }
+            phone.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_nomor_telp_tdk_boleh_kosong))
+            }
+            else -> {
+                viewModel.requestOTP(phone, apptoken)
+            }
         }
     }
 
     fun resendCode(token:String){
-        if (apptoken.isEmpty()){
-            wagoCallback.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
-        }else{
-            viewModel.resendCode(token, apptoken)
+        when {
+            apptoken.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
+            }
+            token.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_token_tdk_boleh_kosong))
+            }
+            else -> {
+                viewModel.resendCode(token, apptoken)
+            }
         }
     }
 
     fun verification(token:String, otpCode:String){
-        if (apptoken.isEmpty()){
-            wagoCallback.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
-        }else{
-            viewModel.verification(otpCode, token, apptoken)
+        when {
+            apptoken.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_anda_tidak_memiliki_token))
+            }
+            otpCode.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_otp_tdk_boleh_kosong))
+            }
+            token.isEmpty() -> {
+                wagoCallback.onError(context.getString(R.string.teks_token_tdk_boleh_kosong))
+            }
+            else -> {
+                viewModel.verification(otpCode, token, apptoken)
+            }
         }
     }
 

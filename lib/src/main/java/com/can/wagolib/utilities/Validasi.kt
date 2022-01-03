@@ -25,7 +25,7 @@ class   Validasi {
      * value true untuk url rilis/public
      * value false untuk url sandbox/produksi*/
     fun isPublicTest(): Boolean {
-        return true
+        return false
     }
 
 

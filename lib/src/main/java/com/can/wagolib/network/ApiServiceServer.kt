@@ -1,6 +1,6 @@
 package com.can.wagolib.network
 
-import com.can.wagolib.model.Verification
+import com.can.wagolib.model.Data
 import com.can.wagolib.network.response.WagooResponse
 import com.can.wagolib.utilities.Config
 import io.reactivex.Observable
@@ -16,31 +16,31 @@ interface ApiServiceServer {
     fun default(): Observable<WagooResponse>
 
     @Headers(Config.API)
-    @POST("auth/request")
+    @POST("request_otp")
     fun request(
-        @Header("Token") token:String,
-        @Body data:Verification
+        @Header("app_token") token:String,
+        @Body data:Data
     ): Observable<WagooResponse>
 
     @Headers(Config.API)
-    @POST("auth/verification")
+    @POST("verification_post")
     fun verification(
-        @Header("Token") token:String,
-        @Body data:Verification
+        @Header("app_token") token:String,
+        @Body data:Data
     ): Observable<WagooResponse>
 
     @Headers(Config.API)
-    @POST("auth/resend")
+    @POST("resend_otp")
     fun resendCode(
-        @Header("Token") token:String,
-        @Body data:Verification
+        @Header("app_token") token:String,
+        @Body data:Data
     ): Observable<WagooResponse>
 
     @Headers(Config.API)
-    @POST("auth/valid")
+    @POST("check_wa")
     fun checkValidWhatsapp(
-        @Header("Token") token:String,
-        @Body data:Verification
+        @Header("app_token") token:String,
+        @Body data:Data
     ): Observable<WagooResponse>
 
 

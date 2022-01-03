@@ -1,11 +1,10 @@
 package com.can.wagolib.network.response
 
+import com.can.wagolib.model.Data
+import com.can.wagolib.model.Meta
 import java.io.Serializable
 
 class WagooResponse : Serializable {
-
-    val error:Boolean  = false
-    val code:Int = 0
-    val message:String = ""
-    var token:String = ""
+    var meta:Meta = Meta()
+    var data:Data = Data()
 }

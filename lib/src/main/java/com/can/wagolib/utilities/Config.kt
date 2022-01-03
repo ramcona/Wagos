@@ -4,8 +4,8 @@ import android.os.Environment
 
 object Config {
 
-    private const val public_base_url = "https://wago.idaman.co.id/index.php/"
-    private const val sandbox_base_url = "https://wago.idaman.co.id/index.php/"
+    private const val public_base_url = "https://waotp.idaman.co.id/api/"
+    private const val sandbox_base_url = "https://waotp.idaman.co.id/api/"
 
 
     private var BASE_URL = if (Validasi().isRelease()){
@@ -34,18 +34,6 @@ object Config {
     val extra_id: String = "extraID"
 
     var DIRECTORY_IMAGE: String =
-        Environment.getExternalStorageDirectory().toString() + "/AVESMA/images/"
-
-    fun shareArtikel(id:String):String{
-        return "${BASE_URL}api/v1/share?id=${id}&type=article"
-    }
-    fun sharePembelajaran(id:String):String{
-        return "${BASE_URL}api/v1/share?id=${id}&type=article-procedure"
-    }
-
-    fun shareResep(id:String):String{
-        return "${BASE_URL}api/v1/share?id=${id}&type=article-recipe"
-    }
-
+        Environment.getExternalStorageDirectory().toString() + "/WAGOS/images/"
 
 }

@@ -4,4 +4,7 @@
     <string name="teks_terjadi_kesalahan_code_400">Terjadi kesalahan, 400</string>
     <string name="teks_terjadi_kesalahan_code_500">Terjadi kesalahan, 500</string>
     <string name="teks_anda_tidak_memiliki_token">Anda tidak memiliki token untuk menggunakan fungsi ini</string>
+    <string name="teks_nomor_telp_tdk_boleh_kosong">Nomor telepon tidak boleh kosong</string>
+    <string name="teks_otp_tdk_boleh_kosong">OTP kode tidak boleh kosong</string>
+    <string name="teks_token_tdk_boleh_kosong">Token autentifikasi tidak boleh kosong</string>
 </resources>
