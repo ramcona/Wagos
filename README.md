@@ -35,6 +35,11 @@ dependencies {
 
 Rebuild
 
+Selanjutnya tambahkan ijin untuk menggunakan internet di Manifests.xml
+````
+    <uses-permission android:name="android.permission.INTERNET" />
+````
+
 untuk menggunkan librarynya bisa di lihat di 
 MainActivity.kt | [MainActivity.kt][MainActivity] 
 
