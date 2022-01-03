@@ -42,7 +42,7 @@ MainActivity.kt | [MainActivity.kt][MainActivity]
 
 
 
-
+\
 ## A. Penggunaan untuk Verifikasi
 
 1. Tambahkan ``WagoCallback`` sebagai callback implement
@@ -112,8 +112,8 @@ verification.verification(token = requestToken, otpCode = otpCode)
 ````
 
 
-
-## A. Penggunaan untuk mengecek nomor tersedia di Whatsapp atau tidak
+\
+## B. Penggunaan untuk mengecek nomor tersedia di Whatsapp atau tidak
 
 1. implement `class` `WagoCheckValidPhoneCallback` dan daftarkan member-member nya.
 
@@ -141,6 +141,7 @@ checkValidPhone.check(phone = 62892362328323)
 ````
 
 Setelah melakukan permintaan check nomor telepon apakah tersedia di whatsapp method / void `resultValidNumberCheck()` terpangil.
+\
 ``response.data.code`` : 1  = nomor tersedia / terdaftar di whatsapp 
 \
 ``response.data.code`` : 0  = nomor tidak terdaftar di whatsapp
