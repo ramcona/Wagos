@@ -24,6 +24,7 @@ class SharedPref(context: Context) {
     fun setString(keySP: String, value: String) {
         editor.putString(keySP, value)
         editor.commit()
+        editor.apply()
     }
 
     fun clearAll() {
