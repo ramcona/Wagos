@@ -28,7 +28,7 @@ class ClientService {
 
         val okHttpClient: OkHttpClient = if (Validasi().isRelease()) {
             OkHttpClient.Builder()
-                .addInterceptor(interceptor) //iterceptor hanya untuk debug link tidak untuk release
+//                .addInterceptor(interceptor) //iterceptor hanya untuk debug link tidak untuk release
                 .connectTimeout(cTO, TimeUnit.SECONDS)
                 .writeTimeout(wTO, TimeUnit.SECONDS)
                 .readTimeout(rTO, TimeUnit.SECONDS)
