@@ -29,7 +29,7 @@ allprojects {
 setelah itu tambahakn dependency wago nya.
 ```
 dependencies {
-	        implementation 'com.github.ramcona:wagos:1.3.4'
+	        implementation 'com.github.ramcona:wagos:1.4.4'
 	}
 ```
 
