@@ -9,7 +9,7 @@ class WagoCheckPhone(val context: Context, private val callbackCheckPhone:WagoCh
 
     private var pref = SharedPref(context)
     private var viewModel:CheckValidViewModel = CheckValidViewModel(context, callbackCheckPhone)
-    private var apptoken = pref.token
+    private var apptoken = pref.getTokens()
 
 
     fun check(phone:String){

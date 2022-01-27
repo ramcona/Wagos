@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), WagoCallback, WagoCheckValidPhoneCallb
         /**
          * 3. add app token to library
          * you just 1 time to add this token, on splash, login or where but you must not call evrytime*/
-        verification.setTokenApp("xxxxxxxxxxxx")
+        verification.setTokenApp("XzRCK9ssmEhw4Pry04njWFSbVmDHLT9KTcUthsDCbGT7HeqVL1JND3HOcdxC")
 
         /*checking alredy token*/
         print(verification.myAppToken())

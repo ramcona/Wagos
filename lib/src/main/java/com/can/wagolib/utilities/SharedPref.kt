@@ -11,7 +11,6 @@ class SharedPref(context: Context) {
     private val sp: SharedPreferences = context.getSharedPreferences(mypref, Context.MODE_PRIVATE)
     private val editor: SharedPreferences.Editor = sp.edit()
 
-
     fun setToken(value:String){
         setString(token, value)
     }
